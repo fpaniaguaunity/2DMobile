@@ -22,7 +22,7 @@ public class MovedorPlayer : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Math.Abs(playerRB2D.velocity.y) == 0)
+            if (Math.Abs(playerRB2D.velocity.y) < 0.01f)
             {
                 playerRB2D.velocity =
                     new Vector2(horizontal * velocidadDesplazamiento, velocidadSalto);
