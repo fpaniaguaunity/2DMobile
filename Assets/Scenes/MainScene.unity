@@ -479,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadDesplazamiento: 3
   velocidadSalto: 5
+  sonidoSalto: {fileID: 8300000, guid: a1e32fb4e98137b4680358e1b24e33e9, type: 3}
 --- !u!114 &1621283376
 MonoBehaviour:
   m_ObjectHideFlags: 0
