@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI textNumeroMonedas;
 
-    // Update is called once per frame
-    void Update()
+    private int numeroMonedas = 0;
+
+    public void AddCoin()
     {
-        
+        numeroMonedas++;
+
+        if (textNumeroMonedas == null)
+        {
+            Debug.LogError("El GameManager no está correctamente configurado");
+        } else
+        {
+            textNumeroMonedas.text = numeroMonedas.ToString();
+        }
     }
 }

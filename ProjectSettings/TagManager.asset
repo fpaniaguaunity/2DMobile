@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plataforma
+  - Enemigo
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
