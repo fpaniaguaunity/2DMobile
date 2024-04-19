@@ -9,18 +9,25 @@ public class MovedorPlayer : MonoBehaviour
     public float velocidadSalto;
     public AudioClip sonidoSalto;
 
+    public Joystick joystick;
+
     private float horizontal;
 
     private Rigidbody2D playerRB2D;
     void Start()
     {
         playerRB2D = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        if (joystick != null )
+        {
+            horizontal = joystick.Horizontal;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
         {
             if (Math.Abs(playerRB2D.velocity.y) < 0.01f)
             {

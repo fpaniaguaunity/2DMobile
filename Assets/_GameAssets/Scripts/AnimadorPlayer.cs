@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AnimadorPlayer : MonoBehaviour
 {
+    public Joystick joystick;
     float horizontal;
     Animator animator;
     void Start()
@@ -15,6 +16,10 @@ public class AnimadorPlayer : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+        if (joystick)
+        {
+            horizontal = joystick.Horizontal;
+        }
         animator.SetFloat("Horizontal",Math.Abs(horizontal));
     }
 }
