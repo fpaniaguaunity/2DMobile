@@ -18,7 +18,7 @@ public class DisparadorPlayer : MonoBehaviour
             armaConfigurada = true;
         } else
         {
-            Debug.LogError("El script DisparadorPlayer no está correctamente configurado");
+            Debug.LogError("El script DisparadorPlayer no estï¿½ correctamente configurado");
         }
     }
 
@@ -27,7 +27,11 @@ public class DisparadorPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
         {
-            if (!armaConfigurada) return;
+           Disparar();
+        }
+    }
+    public void Disparar(){
+         if (!armaConfigurada) return;
             if (sonidoDisparo)
             {
                 AudioSource.PlayClipAtPoint(sonidoDisparo, puntoDisparo.position);
@@ -35,6 +39,5 @@ public class DisparadorPlayer : MonoBehaviour
             GameObject proyectil = Instantiate(prefabProyectil, puntoDisparo.transform.position, puntoDisparo.transform.rotation);
             float direccion = GetComponent<SpriteRenderer>().flipX ? -1 : 1;
             proyectil.GetComponent<Rigidbody2D>().AddForce(new Vector2(direccion, incrementoAltitud) * fuerzaDisparo);
-        }
     }
 }

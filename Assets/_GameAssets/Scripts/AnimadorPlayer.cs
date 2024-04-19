@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class AnimadorPlayer : MonoBehaviour
 {
-    [Header("Marcar si se desea utilizar el pad an·logico de XBOX en lugar del digital")]
+    public Joystick joystick;
+
+    [Header("Marcar si se desea utilizar el pad anal√≥gico de XBOX en lugar del digital")]
     public bool padAnalogicoXBOX = false;
     float horizontal;
     Animator animator;
@@ -17,6 +19,9 @@ public class AnimadorPlayer : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+        if (joystick){
+            horizontal = joystick.Horizontal;
+        }
         if (padAnalogicoXBOX)
         {
             horizontal = Input.GetAxis("HorizontalXBox");

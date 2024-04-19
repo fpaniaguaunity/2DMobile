@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class MovedorPlayer : MonoBehaviour
 {
+    public Joystick joystick;
     public float velocidadDesplazamiento;
     public float velocidadSalto;
     public AudioClip sonidoSalto;
-    [Header("Marcar si se desea utilizar el pad an·logico de XBOX en lugar del digital")]
+    [Header("Marcar si se desea utilizar el pad anal√≥gico de XBOX en lugar del digital")]
     public bool padAnalogicoXBOX = false;
 
     private float horizontal;
@@ -22,22 +23,30 @@ public class MovedorPlayer : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+        if (joystick){
+            horizontal = joystick.Horizontal;
+        }
         if (padAnalogicoXBOX){
             horizontal = Input.GetAxis("HorizontalXBox");
         }
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
         {
-            if (Math.Abs(playerRB2D.velocity.y) < 0.01f)
-            {
-                playerRB2D.velocity =
-                    new Vector2(horizontal * velocidadDesplazamiento, velocidadSalto);
-                AudioSource.PlayClipAtPoint(sonidoSalto, playerRB2D.position);
-            }
+            Saltar();
         }
         else
         {
             playerRB2D.velocity =
                 new Vector2(horizontal * velocidadDesplazamiento, playerRB2D.velocity.y);
+        }
+    }
+
+    public void Saltar()
+    {
+        if (Math.Abs(playerRB2D.velocity.y) < 0.01f)
+        {
+            playerRB2D.velocity =
+                new Vector2(horizontal * velocidadDesplazamiento, velocidadSalto);
+            AudioSource.PlayClipAtPoint(sonidoSalto, playerRB2D.position);
         }
     }
 }
