@@ -20,7 +20,7 @@ public class MovedorPlayer : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
         {
             if (Math.Abs(playerRB2D.velocity.y) < 0.01f)
             {
