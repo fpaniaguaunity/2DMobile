@@ -11,7 +11,7 @@ public class Muelle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider2D){
         if (collider2D.transform.CompareTag(tagPlayer)) {
             //1. Extender el muelle (activar animación)
-           
+            GetComponent<Animator>().SetTrigger("Jump");
             //2. Impulsar al Player hacia arriba
             collider2D.transform.GetComponent<Rigidbody2D>().velocity = Vector2.up * fuerza;
         }
