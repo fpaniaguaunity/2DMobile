@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6015707744989825359}
   - component: {fileID: 6504047169872304292}
   - component: {fileID: 8866892935416296596}
+  - component: {fileID: 8761806869952392527}
+  - component: {fileID: 8668412371852927635}
   m_Layer: 0
   m_Name: Raton
   m_TagString: Enemigo
@@ -168,6 +170,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.089771, y: 0.6375874}
   m_EdgeRadius: 0
+--- !u!50 &8761806869952392527
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424316316264919122}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8668412371852927635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424316316264919122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563d51ba7119db44581c639e6051f050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagPlayer: Player
+  danyo: 25
 --- !u!1 &6440935971322135153
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,21 +22,19 @@ public class MovedorPlayer : MonoBehaviour
 
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        if (joystick){
+        if (Application.platform == RuntimePlatform.Android){
             horizontal = joystick.Horizontal;
+        } else {
+            horizontal = Input.GetAxis("Horizontal");
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+            {
+                Saltar();
+            }
         }
+        playerRB2D.velocity =
+                new Vector2(horizontal * velocidadDesplazamiento, playerRB2D.velocity.y);
         if (padAnalogicoXBOX){
             horizontal = Input.GetAxis("HorizontalXBox");
-        }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
-        {
-            Saltar();
-        }
-        else
-        {
-            playerRB2D.velocity =
-                new Vector2(horizontal * velocidadDesplazamiento, playerRB2D.velocity.y);
         }
     }
 
